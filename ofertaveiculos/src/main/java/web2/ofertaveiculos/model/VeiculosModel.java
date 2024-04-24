@@ -26,6 +26,17 @@ public class VeiculosModel {
 
     private double valor;
 
+    private String imagem;
+
+
+    public String getImagem() {
+        return this.imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
     @ManyToOne
     @JoinColumn(name = "categoriaID")
     private CategoriasModel categoriaID;
