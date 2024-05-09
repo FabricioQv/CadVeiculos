@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Veículo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Editar Veículo</h2>
+    <form th:action="@{/veiculos/editarVeiculo/{id_veiculos}(id_veiculos=${veiculo.id_veiculos})}" th:object="${veiculo}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="placa">Placa:</label>
+            <input type="text" class="form-control" id="placa" th:field="*{placa}">
+        </div>
+        <div class="form-group">
+            <label for="cor">Cor:</label>
+            <input type="text" class="form-control" id="cor" th:field="*{cor}">
+        </div>
+        <div class="form-group">
+            <label for="modelo">Modelo:</label>
+            <input type="text" class="form-control" id="modelo" th:field="*{modelo}">
+        </div>
+        <div class="form-group">
+            <label for="marca">Marca:</label>
+            <input type="text" class="form-control" id="marca" th:field="*{marca}">
+        </div>
+        <div class="form-group">
+            <label for="valor">Valor:</label>
+            <input type="text" class="form-control" id="valor" th:field="*{valor}">
+        </div>
+        <div class="form-group">
+            <label for="categoria">Categoria:</label>
+            <select class="form-control" id="categoria_id" name="categoria_id" th:field="*{categoria.categoriaId}">
+                <option th:each="categoria : ${categorias}" th:value="${categoria.categoriaId}" th:text="${categoria.nome}"></option>
+            </select>            
+        </div>
+        <div class="form-group">
+            <label for="imagem">Imagem:</label>
+            <input type="file" class="form-control-file" id="imagem" name="file">
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

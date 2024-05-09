@@ -70,5 +70,12 @@ public class CategoriasController {
             return ResponseEntity.status(HttpStatus.OK).body(categoriasRepository.save(categoriaModel));
     }
 
+    @GetMapping("/categorias/listar")
+public ResponseEntity<List<CategoriasModel>> listarTodasCategorias() {
+    List<CategoriasModel> categorias = categoriasRepository.findAll();
+    return ResponseEntity.status(HttpStatus.OK).body(categorias);
+}
+
+
 
 }

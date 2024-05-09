@@ -38,9 +38,18 @@ public class VeiculosModel {
     }
 
     @ManyToOne
-    @JoinColumn(name = "categoriaID")
-    private CategoriasModel categoriaID;
+    @JoinColumn(name = "categoriaId")
+    private CategoriasModel categoria;
 
+
+
+    public CategoriasModel getCategoria() {
+        return this.categoria;
+    }
+
+    public void setCategoria(CategoriasModel categoria) {
+        this.categoria = categoria;
+    }
 
     public int getId_veiculos() {
         return this.id_veiculos;
@@ -81,15 +90,6 @@ public class VeiculosModel {
     public void setMarca(String marca) {
         this.marca = marca;
     }
-
-    public CategoriasModel getCategoriaID() {
-        return this.categoriaID;
-    }
-
-    public void setCategoriaID(CategoriasModel categoriaID) {
-        this.categoriaID = categoriaID;
-    }
-
 
     public double getValor() {
         return this.valor;

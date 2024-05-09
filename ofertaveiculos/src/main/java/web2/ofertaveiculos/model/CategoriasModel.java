@@ -14,16 +14,12 @@ public class CategoriasModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int categoria_id;
+    private int categoriaId;
     private String nome;
 
 
-    public int getCategoria_id() {
-        return this.categoria_id;
-    }
-
-    public void setCategoria_id(int categoria_id) {
-        this.categoria_id = categoria_id;
+    public int getCategoriaId() {
+        return this.categoriaId;
     }
 
     public String getNome() {

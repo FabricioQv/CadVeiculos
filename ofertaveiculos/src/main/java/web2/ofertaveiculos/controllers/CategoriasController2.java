@@ -51,7 +51,7 @@ public class CategoriasController2 {
 		BeanUtils.copyProperties(categoriasDTO, categoriasModel);
 		categoriasRepositorio.save(categoriasModel);
 		msg.addFlashAttribute("mensagem", "Inserido com sucesso!");
-		return "redirect:/categorias/list";
+		return "redirect:/categorias/listarCategorias";
 	}
 
     @GetMapping("/listarCategorias")
@@ -64,7 +64,7 @@ public class CategoriasController2 {
 
     @PostMapping("/listarCategorias")
 	public ModelAndView listarCategoriasSRC(@RequestParam("src") String src){
-		ModelAndView mv = new ModelAndView("categorias/listarCategorias");
+		ModelAndView mv = new ModelAndView("./src/main/resources/templates/categorias/listarCategorias.html");
 		List<CategoriasModel> categorias = 	categoriasRepositorio.findCategoriasByNomeLike("%" +src+"%");
 		mv.addObject("categorias", categorias);
 		return mv;

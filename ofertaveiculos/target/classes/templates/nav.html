@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sua Página Inicial</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">Menu</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Categorias
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a th:each="categoria : ${categorias}" class="dropdown-item"
+                           th:href="@{'/veiculos/listarVeiculosPorCategoria/' + ${categoria.categoriaId}}">
+                            <span th:text="${categoria.nome}"></span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" th:action="@{/veiculos/listarVeiculos}" method="post">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar por modelo" aria-label="Search"
+                       name="modelo">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+            <form class="form-inline my-2 my-lg-0" th:action="@{/veiculos/listarVeiculosPorAno}" method="post">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar por ano" aria-label="Search"
+                       name="ano">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+            <a class="nav-link" th:href="@{/veiculos/inserirVeiculos}">Cadastrar Veículo</a>
+        </div>
+    </div>
+</nav>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

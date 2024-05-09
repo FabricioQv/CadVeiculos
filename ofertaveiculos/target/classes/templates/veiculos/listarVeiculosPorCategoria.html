@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Veículos por Categoria</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Veículos por Categoria</h2>
+    <div class="row">
+        <div class="col-md-4" th:each="veiculo : ${veiculos}">
+            <div class="card">
+                <img th:src="@{'/img/' + ${veiculo.imagem}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${veiculo.marca + ' ' + veiculo.modelo}"></h5>
+                    <p class="card-text">Cor: <span th:text="${veiculo.cor}"></span></p>
+                    <p class="card-text">Valor: <span th:text="${veiculo.valor}"></span></p>
+                    <a th:href="@{'/veiculos/editarVeiculo/' + ${veiculo.id_veiculos}}" class="btn btn-primary">Editar</a>
+                    <a th:href="@{'/veiculos/excluirVeiculo/' + ${veiculo.id_veiculos}}" class="btn btn-danger">Excluir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
